@@ -1,0 +1,6 @@
+i2c.c:15:19:LCD_SendInternal	32	static
+i2c.c:39:6:LCD_SendCommand	0	static
+i2c.c:44:6:LCD_SendData	0	static
+i2c.c:49:6:LCD_Init	8	static
+i2c.c:61:6:LCD_SendString	16	static
+i2c.c:69:6:init	0	static

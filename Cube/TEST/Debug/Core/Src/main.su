@@ -1,0 +1,4 @@
+main.c:151:6:SystemClock_Config	88	static
+main.c:78:5:main	48	static
+main.c:298:6:ADC_ValueFunc	16	static
+main.c:318:6:_Error_Handler	0	static

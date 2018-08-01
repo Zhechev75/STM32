@@ -1,0 +1,7 @@
+main.c:156:6:SystemClock_Config	160	static
+main.c:326:6:OwnInit	8	static
+main.c:87:5:main	48	static
+main.c:337:6:Timer6	8	static
+main.c:349:6:I2C_Send	16	static
+main.c:355:6:Timer7	16	static
+main.c:369:6:_Error_Handler	0	static

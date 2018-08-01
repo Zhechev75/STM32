@@ -1,0 +1,2 @@
+adc.c:10:10:Adc1Conv	16	static
+adc.c:19:6:Adc1LCD	24	static

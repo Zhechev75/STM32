@@ -1,0 +1,2 @@
+DS3231.c:13:6:WriteDS	24	static
+DS3231.c:19:6:ReadDS	24	static
