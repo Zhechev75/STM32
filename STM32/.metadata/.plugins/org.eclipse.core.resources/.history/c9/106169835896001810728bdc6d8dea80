@@ -1,0 +1,9 @@
+#include "UART.h"
+
+void vMainUART(void const * argument)
+{
+	while(1)
+	{
+		osDelay(100);
+	}
+}

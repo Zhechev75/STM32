@@ -3,7 +3,7 @@ main.c:414:6:StartDefaultTask	8	static
 main.c:429:6:vMainUART2	8	static
 main.c:194:6:SystemClock_Config	96	static
 main.c:389:6:startInit	8	static
-main.c:395:6:vMainTaskMake	16	static
 main.c:103:5:main	80	static
+main.c:395:6:vMainTaskMake	16	static
 main.c:449:6:HAL_TIM_PeriodElapsedCallback	0	static
 main.c:468:6:_Error_Handler	0	static

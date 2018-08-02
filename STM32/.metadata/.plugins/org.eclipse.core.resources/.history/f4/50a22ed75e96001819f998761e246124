@@ -1,0 +1,28 @@
+#include "UART.h"
+#include "cmsis_os.h"
+
+void vMainUART(void const * argument)
+{
+	while(1)
+	{
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14|GPIO_PIN_15);
+		osDelay(1000);
+
+	}
+}
+
+void vMainTaskMake2(void)
+{
+	xTaskCreate(vMainTask1, (signed char *)"TASK1", 128, NULL, 1, NULL); //configMINIMAL_STACK_SIZE
+	//xTaskCreate();
+}
+
+void vMainTask1(void *pvParameters)
+{
+	while(1)
+	{
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+		osDelay(200);
+	}
+	vTaskDelete(NULL);
+}

@@ -150,7 +150,7 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of Uart */
-  osThreadDef(Uart, vMainUART, osPriorityIdle, 0, 128);
+  osThreadDef(Uart, vMainUART, 2, 0, 128);
   UartHandle = osThreadCreate(osThread(Uart), NULL);
 
   /* definition and creation of uart2 */
@@ -159,8 +159,8 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  vMainTaskMake();
-  vMainTaskMake2();
+  //vMainTaskMake();
+  //vMainTaskMake2();
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */

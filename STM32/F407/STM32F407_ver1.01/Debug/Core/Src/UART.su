@@ -1,3 +1,3 @@
-UART.c:21:6:vMainTask2	8	static
-UART.c:5:6:vMainUART	8	static
-UART.c:15:6:vMainTaskMake2	16	static
+UART.c:6:6:vMainUART	24	static
+UART.c:26:6:vMainTask2	8	static
+UART.c:20:6:vMainTaskMake2	16	static

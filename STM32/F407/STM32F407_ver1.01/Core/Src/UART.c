@@ -1,11 +1,16 @@
 #include "UART.h"
 #include "cmsis_os.h"
 
-
+xTaskHandle priority;
+uint8_t value;
 void vMainUART(void const * argument)
 {
+	uint8_t count = 0;
 	while(1)
 	{
+		printf("asd %d\n", count);
+		count++;
+		priority = uxTaskPriorityGet(vMainUART);//0xebfbbbf0
 		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14|GPIO_PIN_15);
 		osDelay(1000);
 
