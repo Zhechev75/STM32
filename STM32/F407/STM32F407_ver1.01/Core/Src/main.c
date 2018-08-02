@@ -86,6 +86,9 @@ void vMainUART2(void const * argument);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 //osStatus osDelay (uint32_t millisec);
+void startInit(void);
+void vMainTask1( void *pvParameters );
+void vMainTaskMake(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -126,7 +129,7 @@ int main(void)
   MX_ADC1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  startInit();
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -156,6 +159,8 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  vMainTaskMake();
+  vMainTaskMake2();
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -381,9 +386,27 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 //*********************************************************************************************************************************************************
 //*********************************************************************************************************************************************************
+void startInit(void)
+{
+	HAL_TIM_Base_Start(&htim7);
+	HAL_TIM_Base_Start_IT(&htim7);
+}
 
+void vMainTaskMake(void)
+{
+	xTaskCreate(vMainTask1, (const char *)"TASK1", 128, NULL, 1, NULL); //configMINIMAL_STACK_SIZE
+	//xTaskCreate();
+}
 
-
+void vMainTask1(void *pvParameters)
+{
+	while(1)
+	{
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+		osDelay(200);
+	}
+	vTaskDelete(NULL);
+}
 
 /* USER CODE END 4 */
 
@@ -395,9 +418,10 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+	 // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 	  osDelay(500);
   }
+  vTaskDelete(NULL);
   /* USER CODE END 5 */ 
 }
 
@@ -408,7 +432,7 @@ void vMainUART2(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+	  //HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 	  osDelay(2000);
   }
   /* USER CODE END vMainUART2 */
