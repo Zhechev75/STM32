@@ -54,7 +54,7 @@
 /* Includes ------------------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
-
+#include "UART.h"
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
