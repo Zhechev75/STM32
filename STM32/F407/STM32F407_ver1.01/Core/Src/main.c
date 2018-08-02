@@ -85,7 +85,7 @@ void vMainUART2(void const * argument);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-
+//osStatus osDelay (uint32_t millisec);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -379,6 +379,11 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+//*********************************************************************************************************************************************************
+//*********************************************************************************************************************************************************
+
+
+
 
 /* USER CODE END 4 */
 
@@ -390,7 +395,8 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+	  osDelay(500);
   }
   /* USER CODE END 5 */ 
 }
@@ -402,7 +408,8 @@ void vMainUART2(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+	  osDelay(2000);
   }
   /* USER CODE END vMainUART2 */
 }
