@@ -97,7 +97,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t count[] = "0x00";
+  uint8_t count = 0xFF;
 
   /* USER CODE END 2 */
 
@@ -107,7 +107,8 @@ int main(void)
   {
 	  while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_READY)
 	  {
-		  HAL_UART_Transmit_IT(&huart1, count, sizeof(count));
+		  HAL_UART_Transmit_IT(&huart1, &count, sizeof(count));
+		  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
 		  HAL_Delay(999);
 	  }
 	  HAL_Delay(1);
